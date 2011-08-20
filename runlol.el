@@ -71,7 +71,7 @@
 (defun runlol--update-state ()
   (if (not (file-exists-p (expand-file-name runlol-socket)))
       (runlol--on-state nil)
-    (let ((runlol-buffer (get-buffer-create "runlol-buffer")))
+    (let ((runlol-buffer (get-buffer-create "*runlol-process*")))
       (with-current-buffer runlol-buffer
         (erase-buffer))
       (make-network-process :name "runlol-poller"
@@ -83,7 +83,7 @@
                                         (if (string-match "connection broken by remote peer" msg)
                                             (runlol--on-state
                                              (json-read-from-string
-                                              (with-current-buffer (get-buffer "runlol-buffer")
+                                              (with-current-buffer (get-buffer "*runlol-process*")
                                                 (buffer-string))))))))))
 
 (setq runlol--timer-failsafe nil)
