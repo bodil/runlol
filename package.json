@@ -1,0 +1,17 @@
+{ "name" : "runlol"
+, "version" : "0.1.0"
+, "description" : "Automated CoffeeScript compiler, tester and runner"
+, "author": "Bodil Stokke <bodil@bodil.tv>"
+, "keywords": [ "coffeescript", "tdd" ]
+, "dependencies":
+  { "coffee-script": ""
+  }
+, "repository":
+  { "type": "git"
+  , "url": "http://github.com/bodil/runlol.git"
+  }
+, "bin":
+  { "runlol": "./runlol.coffee"
+  }
+}
+
